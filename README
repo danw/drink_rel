@@ -1,4 +1,56 @@
+The Computer Science House Drink Server, (re-)written in Erlang.
 
-rebar get-deps
-rebar compile
-rebar generate
+For more information about the project:
+
+    http://www.csh.rit.edu/projects
+
+Build Info:
+    1. Grab the dependencies
+        $ rebar get-deps
+    2. Build
+        $ rebar compile
+    3. Generate a release
+        $ rebar generate
+
+Running:
+    $ drink_devel/bin/drink (start|stop|console)
+
+Configuration:
+    Edit the files in this directory:
+        rebar.config - change the dependencies to build
+        reltool.config - release configuration, which apps to include,
+            which files to copy to the release
+        files/app.config - app environment values
+        files/vm.args - erlang runtime arguments
+
+    The different branches in this repository
+
+Legal Info:
+
+    Copyright 2008-2010 by Dan Willemsen <dan@csh.rit.edu>
+    
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
+    
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+    
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+There are separate modules used that may contain different licenses, view the
+README/COPYING or similar files in the directories for more information:
+
+	src/epam - http://github.com/danw/epam
+		PAM library for Erlang
+		GPLv2 or later
+	src/erlang_mysql - http://github.com/danw/erlang_mysql
+		Mysql library for Erlang
+	src/eldap - http://github.com/danw/eldap 
+		LDAP library for Erlang
+		GPLv2 or later
