@@ -15,3 +15,10 @@ unpushed:
 	@echo "--- drink ---"
 	@(cd src/drink; git log --oneline origin/dev..HEAD)
 	@sh -c 'for i in `ls -1 src | grep -v "^drink$$"`; do cd src/$$i; echo "--- $$i ---"; git log --oneline origin/master..HEAD; cd ../..; done'
+
+push:
+	@echo "--- drink_rel ---"
+	@git push origin master
+	@echo "--- drink ---"
+	@(cd src/drink; git push origin dev)
+	@sh -c 'for i in `ls -1 src | grep -v "^drink$$"`; do cd src/$$i; echo "--- $$i ---"; git push origin master; cd ../..; done'
