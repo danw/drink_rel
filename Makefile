@@ -22,3 +22,6 @@ push:
 	@echo "--- drink ---"
 	@(cd src/drink; git push origin dev)
 	@sh -c 'for i in `ls -1 src | grep -v "^drink$$"`; do cd src/$$i; echo "--- $$i ---"; git push origin master; cd ../..; done'
+
+regen:
+	rm -rf drink_devel && rebar compile && rebar generate && make
