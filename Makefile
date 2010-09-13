@@ -25,7 +25,7 @@ push:
 
 rebase:
 	@echo "--- drink_rel ---"
-	@(git fetch origin; git rebase origin/master)
+	@(git fetch origin; git rebase origin/csh)
 	@echo "--- drink ---"
 	@(cd src/drink; git fetch origin; git rebase origin/dev)
 	@sh -c 'for i in `ls -1 src | grep -v "^drink$$"`; do cd src/$$i; echo "--- $$i ---"; git fetch origin; git rebase origin/master; cd ../..; done'
