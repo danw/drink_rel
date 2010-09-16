@@ -2,7 +2,7 @@ shell:
 	drink_devel/bin/drink console
 
 logs:
-	erl -boot start_sasl -sasl sasl_error_logger false -noshell -eval 'rb:start([{report_dir, "drink_devel/log/sasl"}]), rb:show(), init:stop().' | less
+	erl -boot start_sasl -sasl sasl_error_logger false -noshell -eval 'rb:start([{report_dir, "data/log/sasl"}]), rb:show(), init:stop().' | less
 
 status:
 	@echo "--- drink_rel ---"
