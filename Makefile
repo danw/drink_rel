@@ -31,4 +31,6 @@ rebase:
 	@sh -c 'for i in `ls -1 src | grep -v "^drink$$"`; do cd src/$$i; echo "--- $$i ---"; git fetch origin; git rebase origin/master; cd ../..; done'
 
 regen:
-	rm -rf drink_devel && rebar compile && rebar generate && make
+	@rebar compile
+	@rebar generate force=1
+	@mkdir -p data/mnesia_data data/log/sasl data/log/web
