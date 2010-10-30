@@ -12,23 +12,17 @@ status:
 unpushed:
 	@echo "--- drink_rel ---"
 	@git log --oneline origin/csh..HEAD
-	@echo "--- drink ---"
-	@(cd src/drink; git log --oneline origin/dev..HEAD)
-	@sh -c 'for i in `ls -1 src | grep -v "^drink$$"`; do cd src/$$i; echo "--- $$i ---"; git log --oneline origin/master..HEAD; cd ../..; done'
+	@sh -c 'for i in `ls -1 src`; do cd src/$$i; echo "--- $$i ---"; git log --oneline origin/master..HEAD; cd ../..; done'
 
 push:
 	@echo "--- drink_rel ---"
 	@git push origin csh
-	@echo "--- drink ---"
-	@(cd src/drink; git push origin dev)
-	@sh -c 'for i in `ls -1 src | grep -v "^drink$$"`; do cd src/$$i; echo "--- $$i ---"; git push origin master; cd ../..; done'
+	@sh -c 'for i in `ls -1 src`; do cd src/$$i; echo "--- $$i ---"; git push origin master; cd ../..; done'
 
 rebase:
 	@echo "--- drink_rel ---"
 	@(git fetch origin; git rebase origin/csh)
-	@echo "--- drink ---"
-	@(cd src/drink; git fetch origin; git rebase origin/dev)
-	@sh -c 'for i in `ls -1 src | grep -v "^drink$$"`; do cd src/$$i; echo "--- $$i ---"; git fetch origin; git rebase origin/master; cd ../..; done'
+	@sh -c 'for i in `ls -1 src`; do cd src/$$i; echo "--- $$i ---"; git fetch origin; git rebase origin/master; cd ../..; done'
 
 regen:
 	@rebar compile
