@@ -1,4 +1,13 @@
 shell:
+	drink_devel/bin/drink attach
+
+start:
+	drink_devel/bin/drink start
+
+stop:
+	drink_devel/bin/drink stop
+
+test:
 	drink_devel/bin/drink console
 
 logs:
